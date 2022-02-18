@@ -4,12 +4,13 @@ import axios from "axios";
 const Content = () => {
 	const [newsdata, setNewsdata] = useState([]);
 
-	const API_KEY = "663c13671c274a12840436ebd622e284";
-	const url = `https://newsapi.org/v2/top-headlines?country=tw&apiKey=${API_KEY}`;
+	const url = `https://api.newscatcherapi.com//v2/latest_headlines?countries=TW&topic=business&page_size=20`;
 
 	useEffect(() => {
 		axios
-			.get(url)
+			.get(url, {
+				headers: { "X-API-Key": "_pD39Xm-wi5GFJjKLiAl1kF4brimk0Y0uscMvwB8tmc" },
+			})
 			.then((res) => {
 				setNewsdata(res.data.articles);
 			})
@@ -47,13 +48,17 @@ const Content = () => {
 				{newsdata.map((item, index) => {
 					return (
 						<div>
-							<a href={item.url} className="newscard">
-								<img src={item.urlToImage} alt="error" className="newsimg" />
+							<a href={item.link} className="newscard">
+								<img src={item.media} alt="error" className="newsimg" />
 								<div className="newscontent" key={index}>
 									<h2>{item.title}</h2>
-									<p>{item.description}</p>
+									<p>
+										{item.summary.length > 100
+											? `${item.summary.substring(0, 100)}...`
+											: item.summary}
+									</p>
 									<p>{item.author}</p>
-									<p>{item.publishedAt}</p>
+									<p>{item.published_date}</p>
 								</div>
 							</a>
 						</div>
