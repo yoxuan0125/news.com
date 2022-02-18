@@ -3,21 +3,30 @@ import axios from "axios";
 
 const Content = () => {
 	const [newsdata, setNewsdata] = useState([]);
+	const [pageNumber, setPageNumber] = useState(1);
 
-	const url = `https://api.newscatcherapi.com//v2/latest_headlines?countries=TW&topic=business&page_size=20`;
+	const loadMoreNews = () => {
+		const url = `https://api.newscatcherapi.com//v2/latest_headlines?countries=TW&topic=business&page_size=10&page=${pageNumber}`;
 
-	useEffect(() => {
 		axios
 			.get(url, {
 				headers: { "X-API-Key": "_pD39Xm-wi5GFJjKLiAl1kF4brimk0Y0uscMvwB8tmc" },
 			})
 			.then((res) => {
-				setNewsdata(res.data.articles);
+				const newNewsList = [];
+				res.data.articles.forEach((p) => newNewsList.push(p));
+				setNewsdata((oldNewsList) => [...oldNewsList, ...newNewsList]);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-	}, [url]);
+
+		setPageNumber(pageNumber + 1);
+	};
+
+	useEffect(() => {
+		loadMoreNews();
+	}, []);
 
 	return (
 		<div className="content-container">
@@ -64,6 +73,9 @@ const Content = () => {
 						</div>
 					);
 				})}
+				<button onClick={() => loadMoreNews()} className="loadmore-btn">
+					Load More
+				</button>
 			</div>
 		</div>
 	);
