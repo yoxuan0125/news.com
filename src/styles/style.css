@@ -281,6 +281,7 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 5px;
+  max-width: 70vw;
 }
 
 .content-container .newslist .newscard .newsimg {
