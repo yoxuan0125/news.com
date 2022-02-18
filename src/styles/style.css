@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --primary-color: rgb(17, 196, 136);
+}
+
+.navbar {
+  background-color: #f7f7f7;
+  width: 100%;
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  z-index: 1000;
+}
+
+.navbar .navbar-container {
+  border-bottom: 2px;
+  padding: 2% 4% 2% 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70vw;
+}
+
+.navbar .navbar-container .search-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.navbar .navbar-container .search-box .logo {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 20px 0 0;
+  line-height: 0;
+}
+
+.navbar .navbar-container .search-box .logo p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.navbar .navbar-container .search-box .logo p h1 {
+  font-size: 3rem;
+}
+
+.navbar .navbar-container .search-box .inputbox {
+  width: 40vw;
+  min-height: 30px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 1000;
+}
+
+.navbar .navbar-container .search-box .inputbox .search-input {
+  width: 100%;
+  padding: 0 20px;
+  border-radius: 6px;
+  border-top: 1px solid transparent;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  z-index: -1;
+  outline: none;
+}
+
+.navbar .navbar-container .search-box .inputbox .search-input :focus {
+  outline: none;
+}
+
+.navbar .navbar-container .search-box .inputbox .search-btn {
+  background-color: rgba(255, 255, 255, 0);
+  color: var(--primary-color);
+  font-size: 100%;
+  border: none;
+  height: 100%;
+  width: 10%;
+  right: 0;
+  position: absolute;
+}
+
+.navbar .navbar-container .search-box .inputbox .search-btn :hover {
+  cursor: pointer;
+}
+
+.navbar .navbar-container .option {
+  width: 100px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar .navbar-container .option .option-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.navbar .navbar-container .option .option-btns .option-btn {
+  width: 10px;
+  height: 10px;
+  color: var(--primary-color);
+  font-size: 120%;
+  background: none;
+  border: none;
+}
+
+.navbar .navbar-container .option .option-btns .option-btn :hover {
+  cursor: pointer;
+}
+
+.navbar .navbar-container .option .option-menu {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  width: 200px;
+  border-radius: 8px;
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  top: 65px;
+  right: 15vw;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  padding: 12px 0;
+}
+
+.navbar .navbar-container .option .option-menu .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.navbar .navbar-container .option .option-menu .menu .menu-item {
+  text-decoration: none;
+  padding: 12px 20px;
+  color: var(--primary-color);
+}
+
+.navbar .navbar-container .option .option-menu .menu .menu-item:hover {
+  background-color: #eafafa;
+}
+
+.content-container {
+  border-bottom: 2px;
+  padding: 0 4% 2% 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 75vw;
+}
+
+.content-container .sidebar {
+  position: fixed;
+  top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 10%;
+  min-width: 120px;
+  height: 100%;
+  margin-top: 20px;
+  text-align: center;
+  border-right: 1px solid transparent;
+  -webkit-box-shadow: 2px 2px 0.1px 0.1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 0.1px 0.1px rgba(0, 0, 0, 0.2);
+}
+
+.content-container .sidebar .category-btn {
+  width: 100%;
+  padding: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  margin: 5px 0px;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.content-container .sidebar .category-btn:hover {
+  background-color: #eafafa;
+}
+
+.content-container .newslist {
+  position: relative;
+  top: 140px;
+  left: 12vw;
+  padding: 2% 5%;
+  overflow: hidden;
+}
+
+.content-container .newslist .newscard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-decoration: none;
+  color: black;
+  border: 0.5px solid transparent;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2), -1px -1px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2), -1px -1px 2px 1px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+}
+
+.content-container .newslist .newscard .newsimg {
+  height: 20%;
+  width: 20%;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.content-container .newslist .newscard .newscontent {
+  padding: 5px;
+  line-height: 25px;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,131 @@
+.navbar {
+  background-color: rgb(247, 247, 247);
+  width: 100%;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  z-index: 1000;
+
+  .navbar-container {
+    border-bottom: 2px;
+    padding: 2% 4% 2% 2%;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70vw;
+
+    .search-box {
+      display: flex;
+      align-items: flex-end;
+
+      .logo {
+        color: var(--primary-color);
+        text-decoration: none;
+        margin: 0 20px 0 0;
+        line-height: 0;
+
+        p {
+          display: flex;
+          align-items: baseline;
+
+          h1 {
+            font-size: 3rem;
+          }
+        }
+      }
+
+      .inputbox {
+        width: 40vw;
+        min-height: 30px;
+        position: relative;
+        display: flex;
+        z-index: 1000;
+
+        .search-input {
+          width: 100%;
+          padding: 0 20px;
+          border-radius: 6px;
+          border-top: 1px solid transparent;
+          border-bottom: 0;
+          border-left: 0;
+          border-right: 0;
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+          z-index: -1;
+          outline: none;
+          :focus {
+            outline: none;
+          }
+        }
+        .search-btn {
+          background-color: rgba(255, 255, 255, 0);
+          color: var(--primary-color);
+          font-size: 100%;
+          border: none;
+          height: 100%;
+          width: 10%;
+          right: 0;
+          position: absolute;
+
+          :hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .option {
+      width: 100px;
+      height: 20px;
+      display: flex;
+      justify-content: space-between;
+
+      .option-btns {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+
+        .option-btn {
+          width: 10px;
+          height: 10px;
+          color: var(--primary-color);
+          font-size: 120%;
+          background: none;
+          border: none;
+
+          :hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .option-menu {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        width: 200px;
+        border-radius: 8px;
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2),
+          1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+        top: 65px;
+        right: 15vw;
+        transition: all 0.3s linear;
+        padding: 12px 0;
+
+        .menu {
+          display: flex;
+          flex-direction: column;
+          .menu-item {
+            text-decoration: none;
+            padding: 12px 20px;
+            color: var(--primary-color);
+          }
+          .menu-item:hover {
+            background-color: rgb(234, 250, 250);
+          }
+        }
+      }
+    }
+  }
+}
