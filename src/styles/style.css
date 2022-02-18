@@ -203,6 +203,9 @@
         -ms-flex-pack: left;
             justify-content: left;
   }
+  .navbar .option-btn {
+    display: none;
+  }
 }
 
 .content-container {
@@ -313,8 +316,6 @@
     margin: 0;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-    -webkit-transform: translate3d(-15%, 0, 0);
-            transform: translate3d(-15%, 0, 0);
   }
   .sidebar {
     display: none !important;
