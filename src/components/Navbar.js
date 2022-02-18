@@ -27,46 +27,48 @@ const Navbar = () => {
 	}, [showMenu]);
 
 	return (
-		<header className="navbar">
-			<div className="navbar-container">
-				<form action="" className="search-box">
-					<a href="" className="logo">
-						<p>
-							<h1>NEWS</h1>.com
-						</p>
-					</a>
-					<div className="inputbox">
-						<input type="input" className="search-input" />
-						<button className="search-btn">
-							<FaSearch />
-						</button>
-					</div>
-				</form>
-				<div className="option">
-					<div className="option-btns">
-						<button className="option-btn">
-							<FaMoon />
-						</button>
-						<button className="option-btn" onClick={toggleMenu}>
-							<FaBars />
-						</button>
-					</div>
-					<span className="option-menu" ref={menuRef}>
-						<div className="menu" ref={menuItemRef}>
-							<a href="#" className="menu-item">
-								Log-In
-							</a>
-							<a href="#" className="menu-item">
-								Setting
-							</a>
-							<a href="#" className="menu-item">
-								Privacy
-							</a>
+		<div>
+			<header className="navbar">
+				<div className="navbar-container">
+					<form action="" className="search-box">
+						<a href="" className="logo">
+							<p>
+								<h1>NEWS</h1>.com
+							</p>
+						</a>
+						<div className="inputbox">
+							<input type="input" className="search-input" />
+							<button className="search-btn">
+								<FaSearch />
+							</button>
 						</div>
-					</span>
+					</form>
+					<div className="option">
+						<div className="option-btns">
+							<button className="option-btn">
+								<FaMoon />
+							</button>
+							<button className="option-btn" onClick={toggleMenu}>
+								<FaBars />
+							</button>
+						</div>
+						<span className="option-menu" ref={menuRef}>
+							<div className="menu" ref={menuItemRef}>
+								<a href="#" className="menu-item">
+									Log-In
+								</a>
+								<a href="#" className="menu-item">
+									Setting
+								</a>
+								<a href="#" className="menu-item">
+									Privacy
+								</a>
+							</div>
+						</span>
+					</div>
 				</div>
-			</div>
-		</header>
+			</header>
+		</div>
 	);
 };
 
