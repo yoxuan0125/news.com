@@ -59,15 +59,6 @@
     transition: all 0.3s;
   }
 
-  .sidebar {
-    display: none !important;
-  }
-
-  .sidebar-open {
-    transition: all 0.3s;
-    transform: translate3d(0, 0, 0);
-  }
-
   .newslist {
     left: 0;
   }

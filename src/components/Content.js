@@ -51,9 +51,6 @@ const Content = () => {
 					return <Newscard item={item} index={index} />;
 				})}
 				<div>{isLoading && "Loading..."}</div>
-				<button onClick={() => loadMoreNews()} className="loadmore-btn">
-					Load More
-				</button>
 			</div>
 		</div>
 	);
