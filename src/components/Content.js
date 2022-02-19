@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import Newscard from "./Newscard";
+
 const Content = () => {
 	const [newsdata, setNewsdata] = useState([]);
 	const [pageNumber, setPageNumber] = useState(1);
+	const [isLoading, setIsloading] = useState(false);
 
 	const loadMoreNews = () => {
 		const url = `https://api.newscatcherapi.com//v2/latest_headlines?countries=TW&topic=business&page_size=10&page=${pageNumber}`;
+
+		setIsloading(true);
 
 		axios
 			.get(url, {
@@ -16,40 +21,36 @@ const Content = () => {
 				const newNewsList = [];
 				res.data.articles.forEach((p) => newNewsList.push(p));
 				setNewsdata((oldNewsList) => [...oldNewsList, ...newNewsList]);
+				setPageNumber(pageNumber + 1);
+				setIsloading(false);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
+	};
 
-		setPageNumber(pageNumber + 1);
+	const handleScroll = (e) => {
+		const scrollHeight = e.target.documentElement.scrollHeight;
+		const currentHeight = Math.ceil(
+			e.target.documentElement.scrollTop + window.innerHeight
+		);
+		if (currentHeight + 1 >= scrollHeight) {
+			loadMoreNews();
+		}
 	};
 
 	useEffect(() => {
 		loadMoreNews();
+		window.addEventListener("scroll", handleScroll);
 	}, []);
 
 	return (
 		<div className="content-container">
 			<div className="newslist">
 				{newsdata.map((item, index) => {
-					return (
-						<div key={index}>
-							<a href={item.link} className="newscard">
-								<img src={item.media} alt="error" className="newsimg" />
-								<div className="newscontent">
-									<h2>{item.title}</h2>
-									<p>
-										{item.summary.length > 100
-											? `${item.summary.substring(0, 100)}...`
-											: item.summary}
-									</p>
-									<p>{item.author}</p>
-									<p>{item.published_date}</p>
-								</div>
-							</a>
-						</div>
-					);
+					return <Newscard item={item} index={index} />;
 				})}
+				<div>{isLoading && "Loading..."}</div>
 				<button onClick={() => loadMoreNews()} className="loadmore-btn">
 					Load More
 				</button>
