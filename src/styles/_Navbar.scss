@@ -10,15 +10,16 @@
 
   .navbar-container {
     border-bottom: 2px;
-    padding: 2% 2% 2% 2%;
+    // padding: 1% 2% 1% 2%;
     display: flex;
     justify-content: space-between;
     justify-items: center;
+
     margin-left: auto;
     margin-right: auto;
     height: 100%;
     max-width: 70vw;
-    align-items: flex-end;
+    align-items: center;
     min-width: 700px;
     .search-box {
       display: flex;
@@ -114,7 +115,7 @@
         border-radius: 8px;
         box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2),
           1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-        top: 10%;
+        top: 80px;
         right: 15vw;
         transition: all 0.3s linear;
         padding: 12px 0;
