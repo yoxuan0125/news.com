@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import { FaSearch, FaMoon, FaBars } from "react-icons/fa";
 
 const Navbar = () => {
+	console.log("1111");
+
 	const [showMenu, setShowMenu] = useState(false);
 	const menuRef = useRef(null);
 	const menuItemRef = useRef(null);

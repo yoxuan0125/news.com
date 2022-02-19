@@ -30,36 +30,13 @@ const Content = () => {
 
 	return (
 		<div className="content-container">
-			<div className="sidebar">
-				<a href="" className="category-btn">
-					Top-headlines
-				</a>
-				<a href="" className="category-btn">
-					Business
-				</a>
-				<a href="" className="category-btn">
-					Sport
-				</a>
-				<a href="" className="category-btn">
-					Health
-				</a>
-				<a href="" className="category-btn">
-					Science
-				</a>
-				<a href="" className="category-btn">
-					Technology
-				</a>
-				<a href="" className="category-btn">
-					Entertainment
-				</a>
-			</div>
 			<div className="newslist">
 				{newsdata.map((item, index) => {
 					return (
-						<div>
+						<div key={index}>
 							<a href={item.link} className="newscard">
 								<img src={item.media} alt="error" className="newsimg" />
-								<div className="newscontent" key={index}>
+								<div className="newscontent">
 									<h2>{item.title}</h2>
 									<p>
 										{item.summary.length > 100

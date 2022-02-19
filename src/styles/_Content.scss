@@ -6,33 +6,6 @@
   max-width: 80%;
   display: block;
 
-  .sidebar {
-    position: fixed;
-    top: 100px;
-    display: flex;
-    flex-direction: column;
-    width: 10%;
-    min-width: 120px;
-    height: 100%;
-    margin-top: 20px;
-    text-align: center;
-    border-right: 1px solid transparent;
-    box-shadow: 2px 2px 0.1px 0.1px rgba(0, 0, 0, 0.2);
-
-    .category-btn {
-      width: 100%;
-      padding: 10px;
-      align-items: center;
-      height: 50px;
-      margin: 5px 0px;
-      text-decoration: none;
-      color: var(--primary-color);
-    }
-    .category-btn:hover {
-      background-color: rgb(234, 250, 250);
-    }
-  }
-
   .newslist {
     position: relative;
     top: 140px;
