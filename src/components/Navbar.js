@@ -29,9 +29,6 @@ const Navbar = () => {
 					<div className="option">
 						<div className="option-btns">
 							<button className="option-btn">
-								<FaMoon />
-							</button>
-							<button className="option-btn">
 								<FaBars />
 								<span className="option-menu" ref={menuRef}>
 									<div className="menu" ref={menuItemRef}>

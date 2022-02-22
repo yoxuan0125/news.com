@@ -10,7 +10,7 @@
 
   .navbar-container {
     border-bottom: 2px;
-    // padding: 1% 2% 1% 2%;
+
     display: flex;
     justify-content: space-between;
     justify-items: center;
@@ -156,10 +156,12 @@
       padding: 2% 10px 2% 10px;
       align-items: center;
       justify-content: left;
-    }
-
-    .option-btn {
-      display: none;
+      .inputbox {
+        // width: 25vw !important;
+        .search-btn {
+          right: 10px !important;
+        }
+      }
     }
   }
 }
