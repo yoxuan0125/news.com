@@ -1,5 +1,5 @@
 # NEWS.com
-Check the Website [Demo](https://yoxuan0125.github.io/news.com/)
+Check the Website [Demo](https://gifted-goldberg-def87e.netlify.app)
 
 + React
 + API串接
