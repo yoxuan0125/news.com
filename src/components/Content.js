@@ -21,16 +21,34 @@ const Content = () => {
 		if (node) observer.current.observe(node);
 	});
 
+	const handleClick = (e) => {
+		if (e.target.innerText == "All") {
+			setCategory("");
+			setPageNumber(1);
+		} else {
+			setCategory(e.target.innerText.toLowerCase());
+			setPageNumber(1);
+		}
+	};
+
 	return (
 		<div>
 			<div className="sidebar">
-				<button className="category-btn">Top-headlines</button>
-				<button className="category-btn">Business</button>
-				<button className="category-btn">Sport</button>
-				<button className="category-btn">Health</button>
-				<button className="category-btn">Science</button>
-				<button className="category-btn">Technology</button>
-				<button className="category-btn">Entertainment</button>
+				<button className="category-btn" onClick={handleClick}>
+					All
+				</button>
+				<button className="category-btn" onClick={handleClick}>
+					Business
+				</button>
+				<button className="category-btn" onClick={handleClick}>
+					Sport
+				</button>
+				<button className="category-btn" onClick={handleClick}>
+					Science
+				</button>
+				<button className="category-btn" onClick={handleClick}>
+					Entertainment
+				</button>
 			</div>
 			<div className="content-container">
 				<div className="newslist">
