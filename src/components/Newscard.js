@@ -5,7 +5,7 @@ const Newscard = React.forwardRef((props, ref) => {
 	else {
 		return (
 			<div key={props.index} ref={ref}>
-				<a href={props.link} className="newscard">
+				<a href={props.item.link} className="newscard">
 					<img src={props.item.media} alt="error" className="newsimg" />
 					<div className="newscontent">
 						<h2>{props.item.title}</h2>
