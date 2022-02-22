@@ -2,22 +2,12 @@ import React, { useRef, useState, useEffect } from "react";
 import { FaSearch, FaMoon, FaBars } from "react-icons/fa";
 
 const Navbar = () => {
-	console.log("1111");
-
 	const [showMenu, setShowMenu] = useState(false);
 	const menuRef = useRef(null);
 	const menuItemRef = useRef(null);
 	const toggleMenu = () => {
 		setShowMenu(!showMenu);
 	};
-
-	useEffect(() => {
-		if (showMenu) {
-			const menuHeight = menuItemRef.current.getBoundingClientRect().height;
-			menuRef.current.style.height = `${menuHeight + 20}px`;
-		} else {
-		}
-	}, [showMenu]);
 
 	return (
 		<div>
@@ -41,25 +31,23 @@ const Navbar = () => {
 							<button className="option-btn">
 								<FaMoon />
 							</button>
-							<button className="option-btn" onClick={toggleMenu}>
+							<button className="option-btn">
 								<FaBars />
+								<span className="option-menu" ref={menuRef}>
+									<div className="menu" ref={menuItemRef}>
+										<a href="#" className="menu-item">
+											Log-In
+										</a>
+										<a href="#" className="menu-item">
+											Setting
+										</a>
+										<a href="#" className="menu-item">
+											Privacy
+										</a>
+									</div>
+								</span>
 							</button>
 						</div>
-						{showMenu && (
-							<span className="option-menu" ref={menuRef}>
-								<div className="menu" ref={menuItemRef}>
-									<a href="#" className="menu-item">
-										Log-In
-									</a>
-									<a href="#" className="menu-item">
-										Setting
-									</a>
-									<a href="#" className="menu-item">
-										Privacy
-									</a>
-								</div>
-							</span>
-						)}
 					</div>
 				</div>
 			</header>

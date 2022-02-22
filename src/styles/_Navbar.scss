@@ -99,14 +99,28 @@
           font-size: 120%;
           background: none;
           border: none;
-
-          :hover {
-            cursor: pointer;
+        }
+        .option-btn:hover {
+          cursor: pointer;
+          .option-menu {
+            visibility: visible;
+            transition-delay: 0s, 0s, 0.3s;
+            opacity: 1;
+            z-index: 1;
+            transform: translateY(0%);
           }
         }
       }
 
       .option-menu {
+        visibility: hidden; /* hides sub-menu */
+        opacity: 0;
+        width: 100%;
+        transform: translateY(-2em);
+        z-index: 1;
+        transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
+          z-index 0s linear 0.01s;
+
         position: fixed;
         display: flex;
         flex-direction: column;
@@ -115,9 +129,11 @@
         border-radius: 8px;
         box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2),
           1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-        top: 80px;
+        top: 75px;
         right: 15vw;
-        transition: all 0.3s linear;
+        transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
+          z-index 0s linear 0.01s;
+
         padding: 12px 0;
 
         .menu {

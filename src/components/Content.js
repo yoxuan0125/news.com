@@ -1,56 +1,48 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState, useRef, useCallback } from "react";
+import useNewsSearch from "../service/fetchNewsApi";
 
 import Newscard from "./Newscard";
 
 const Content = () => {
-	const [newsdata, setNewsdata] = useState([]);
+	const [category, setCategory] = useState("");
 	const [pageNumber, setPageNumber] = useState(1);
-	const [isLoading, setIsloading] = useState(false);
 
-	const loadMoreNews = () => {
-		const url = `https://api.newscatcherapi.com//v2/latest_headlines?countries=TW&topic=business&page_size=10&page=${pageNumber}`;
+	const { news, hasMore, loading, error } = useNewsSearch(category, pageNumber);
 
-		setIsloading(true);
-
-		axios
-			.get(url, {
-				headers: { "X-API-Key": "_pD39Xm-wi5GFJjKLiAl1kF4brimk0Y0uscMvwB8tmc" },
-			})
-			.then((res) => {
-				const newNewsList = [];
-				res.data.articles.forEach((p) => newNewsList.push(p));
-				setNewsdata((oldNewsList) => [...oldNewsList, ...newNewsList]);
-				setPageNumber(pageNumber + 1);
-				setIsloading(false);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	};
-
-	const handleScroll = (e) => {
-		const scrollHeight = e.target.documentElement.scrollHeight;
-		const currentHeight = Math.ceil(
-			e.target.documentElement.scrollTop + window.innerHeight
-		);
-		if (currentHeight + 1 >= scrollHeight) {
-			loadMoreNews();
-		}
-	};
-
-	useEffect(() => {
-		loadMoreNews();
-		window.addEventListener("scroll", handleScroll);
-	}, []);
+	const observer = useRef();
+	const lastNewsElementRef = useCallback((node) => {
+		if (loading) return;
+		if (observer.current) observer.current.disconnect();
+		observer.current = new IntersectionObserver((entries) => {
+			if (entries[0].isIntersecting && hasMore) {
+				setPageNumber((prevPageNumber) => prevPageNumber + 1);
+			}
+		});
+		if (node) observer.current.observe(node);
+	});
 
 	return (
-		<div className="content-container">
-			<div className="newslist">
-				{newsdata.map((item, index) => {
-					return <Newscard item={item} index={index} />;
-				})}
-				<div>{isLoading && "Loading..."}</div>
+		<div>
+			<div className="sidebar">
+				<button className="category-btn">Top-headlines</button>
+				<button className="category-btn">Business</button>
+				<button className="category-btn">Sport</button>
+				<button className="category-btn">Health</button>
+				<button className="category-btn">Science</button>
+				<button className="category-btn">Technology</button>
+				<button className="category-btn">Entertainment</button>
+			</div>
+			<div className="content-container">
+				<div className="newslist">
+					<div>{loading && "Loading..."}</div>
+					{news.map((item, index) => {
+						if (news.length === index + 1) {
+							return <Newscard item={item} index={index} ref={lastNewsElementRef} />;
+						} else {
+							return <Newscard item={item} index={index} />;
+						}
+					})}
+				</div>
 			</div>
 		</div>
 	);
