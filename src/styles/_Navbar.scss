@@ -157,10 +157,19 @@
       align-items: center;
       justify-content: left;
       .inputbox {
-        // width: 25vw !important;
         .search-btn {
           right: 10px !important;
         }
+      }
+      .option-menu {
+        right: 0;
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .navbar-container {
+      .option-menu {
+        right: 5vw !important;
       }
     }
   }
